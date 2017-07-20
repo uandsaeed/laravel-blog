@@ -14,7 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/blog' ,['as' => 'blog', 'uses' => "PostController@postshow"]);
+
+Route::get('/post', function () {
+    return view('post');
+});
+Route::post("save" ,'PostController@store')->name('save');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
